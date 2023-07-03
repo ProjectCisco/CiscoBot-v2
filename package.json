@@ -1,0 +1,28 @@
+{
+  "name": "ciscobot-v2",
+  "version": "1.0.0",
+  "description": "Bot for Civilization VI Discord Community «CivCPL». Developed on TypeScript and use SQLite, Express, Discord API, Steam Web-API.",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProjectCisco/CiscoBot-v2.git"
+  },
+  "author": "ProjectCisco",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ProjectCisco/CiscoBot-v2/issues"
+  },
+  "homepage": "https://github.com/ProjectCisco/CiscoBot-v2#readme",
+  "devDependencies": {
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@odyssoft/tsorm": "^1.1.1",
+    "discord.js": "^14.11.0",
+    "express": "^4.18.2",
+    "steamapi": "^2.4.2"
+  }
+}
