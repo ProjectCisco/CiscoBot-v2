@@ -1,6 +1,6 @@
 # CiscoBot-v2
 
-![Github-Banner](images/CPL_Bot_Github_banner.png)
+![Github-Banner](assets/images/CPL_Bot_Github_banner2.png)
 Bot for Civilization Players League «CPL». Developed on Node.js/TypeScript.  
 
 
