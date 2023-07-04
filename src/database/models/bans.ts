@@ -9,8 +9,8 @@ export interface IBans {
   ends: string
   type: 'major' | 'minor' | 'moderate' | 'quit'
   tier: number
-  createdAt: string
-  updatedAt: string
+  createdAt?: string
+  updatedAt?: string
 }
 
 export const Bans = CiscoBotSchema.createModel<IBans>('bans', {

@@ -8,8 +8,8 @@ export interface IPlayerciv {
   player: number
   civ: number
   count: number
-  createdAt: string
-  updatedAt: string
+  createdAt?: string
+  updatedAt?: string
 }
 
 export const Playercivs = CiscoBotSchema.createModel<IPlayerciv>('playercivs', {

@@ -4,11 +4,11 @@ import { CiscoBotSchema } from '../schema'
 
 export interface IMatch {
   id: number
-  validation_message_id: number
+  validation_message_id?: number
   gametype: string
-  status: 'validated' | 'waiting'
-  createdAt: string
-  updatedAt: string
+  status?: 'validated' | 'waiting'
+  createdAt?: string
+  updatedAt?: string
 }
 
 export const Match = CiscoBotSchema.createModel<IMatch>('match', {
@@ -23,7 +23,6 @@ export const Match = CiscoBotSchema.createModel<IMatch>('match', {
   },
   status: {
     type: DataTypes.enum(['validated', 'waiting']),
-    default: 'waiting',
   },
   validation_message_id: {
     type: DataTypes.integer,

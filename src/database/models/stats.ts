@@ -13,8 +13,8 @@ export interface IStats {
   first: number
   subbedIn: number
   subbedOut: number
-  createdAt: string
-  updatedAt: string
+  createdAt?: string
+  updatedAt?: string
 }
 
 export const statsObject = {

@@ -6,8 +6,8 @@ import { CiscoBotSchema } from '../schema'
 export interface ICivs {
   id: number
   name: string
-  createdAt: string
-  updatedAt: string
+  createdAt?: string
+  updatedAt?: string
 }
 
 export const Civs = CiscoBotSchema.createModel<ICivs>('civs', {
