@@ -3,7 +3,7 @@ import { DataTypes } from '@odyssoft/tsorm'
 import { CiscoBotSchema } from '../schema'
 
 export interface IPlayer {
-  id: number
+  id?: number
   discord?: string
   steam: string
   username: string

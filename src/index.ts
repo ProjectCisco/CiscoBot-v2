@@ -1,18 +1,13 @@
-import {
-  Bans,
-  Civs,
-  CurrentSeason,
-  Match,
-  MatchPlayerFlags,
-  MatchPlayers,
-  Player,
-  Playercivs,
-  Stats,
-  Subs,
-  statsObject,
-} from './database'
-import { CiscoBotSchema } from './database/schema'
+import { config } from './config'
+import discord from './discord'
+import app from './server'
 
-setTimeout(() => {
-  CiscoBotSchema.close()
-}, 5000)
+discord.login(config.discord.token)
+
+app.listen(
+  config.port,
+  ['127.0.0.1', 'localhost'].includes(config.host) ? config.host : '0.0.0.0',
+  () => {
+    console.log(`Server running at http://${config.host}:${config.port}/`)
+  }
+)
