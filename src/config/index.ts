@@ -3,6 +3,8 @@ import { CorsOptions } from 'cors'
 import { config as env } from 'dotenv'
 import path from 'path'
 
+export * from './constants'
+
 env({
   path: path.resolve('./.env'),
 })
@@ -27,8 +29,9 @@ const discord = {
   guildId: process.env.DISCORD_GUILD_ID ?? '',
   token: process.env.DISCORD_TOKEN ?? '',
   channels: {
-    lobbylinks: '1126078121121173554',
-    voteing: '1126078121121173554',
+    commands: process.env.CHANNEL_COMMANDS!,
+    lobbylinks: process.env.CHANNEL_LOBBYLINKS!,
+    voting: process.env.CHANNEL_VOTING!,
   },
 }
 

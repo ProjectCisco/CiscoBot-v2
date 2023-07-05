@@ -1,11 +1,13 @@
-import { SlashCommandBuilder, SlashCommandMentionableOption } from 'discord.js'
+import { SlashCommandBuilder, SlashCommandUserOption } from 'discord.js'
+
+import { MAX_MENTIONS } from '../config'
 
 export const addOptionalMentions = (
   data: SlashCommandBuilder,
-  count: number
+  count: number = MAX_MENTIONS
 ) => {
   for (let i = 0; i < count; i++) {
-    data.addMentionableOption((option: SlashCommandMentionableOption) =>
+    data.addUserOption((option: SlashCommandUserOption) =>
       option
         .setName(i === 0 ? `user` : `user${Number(i) + 1}`)
         .setDescription('The user to ping')
