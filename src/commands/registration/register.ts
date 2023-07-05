@@ -1,5 +1,5 @@
 import {
-  ChatInputCommandInteraction,
+  CommandInteraction,
   Interaction,
   SlashCommandBuilder,
 } from 'discord.js'
@@ -10,7 +10,7 @@ export const data = new SlashCommandBuilder()
   .setName('register')
   .setDescription('Complete registration to gain access to the server.')
 
-export const execute = async (interaction: ChatInputCommandInteraction) => {
+export const execute = async (interaction: CommandInteraction) => {
   Player.findOne({
     discord: interaction.user.id,
   }).then(async (player) => {

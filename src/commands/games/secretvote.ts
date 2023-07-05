@@ -5,7 +5,7 @@ export const data = new SlashCommandBuilder()
   .setDescription('initiate a secret vote')
   .addStringOption((option) =>
     option
-      .setName('type')
+      .setName('vote_type')
       .setDescription('Choose type of vote options: cc, scrap, irrel, remap')
       .setRequired(true)
       .addChoices(
@@ -17,8 +17,7 @@ export const data = new SlashCommandBuilder()
   )
 
 export const execute = async (interaction: ChatInputCommandInteraction) => {
-  const type = interaction.options.getString('type')
+  const votetype = interaction.options.getString('vote_type')
 
-  interaction.reply({ content: 'Lobby link sent', ephemeral: true })
-  interaction.deleteReply()
+  interaction.reply({ content: `Secret vote: ${votetype}`, ephemeral: true })
 }

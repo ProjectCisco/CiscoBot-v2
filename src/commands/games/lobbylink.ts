@@ -5,7 +5,7 @@ import {
 } from 'discord.js'
 
 import { config } from '../../config'
-import { Validate } from '../../controllers'
+import { ChannelController } from '../../controllers'
 
 export const data = new SlashCommandBuilder()
   .setName('lobbylink')
@@ -21,7 +21,12 @@ export const data = new SlashCommandBuilder()
   )
 
 export const execute = async (interaction: ChatInputCommandInteraction) => {
-  if (!Validate.isChannel(interaction, config.discord.channels.lobbylinks))
+  if (
+    !ChannelController.isChannel(
+      interaction,
+      config.discord.channels.lobbylinks
+    )
+  )
     return
   const steamlink = interaction.options.getString('steamlink')
   if (!steamlink?.startsWith('steam://joinlobby/'))

@@ -28,6 +28,7 @@ const discord = {
   token: process.env.DISCORD_TOKEN ?? '',
   channels: {
     lobbylinks: '1126078121121173554',
+    voteing: '1126078121121173554',
   },
 }
 

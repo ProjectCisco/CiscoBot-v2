@@ -1,6 +1,7 @@
 import { Events } from 'discord.js'
 
 export const name = Events.InteractionCreate
+const test = Events.MessageCreate
 
 export const execute = async (interaction: any) => {
   if (!interaction.isChatInputCommand()) return
