@@ -11,7 +11,8 @@ const Routes = () => {
     AuthController.Validate,
     AuthController.FetchDiscord,
     AuthController.FetchDiscordConnections,
-    AuthController.ValidateSteam
+    AuthController.ValidateSteam,
+    AuthController.RegisterUser
   )
 
   router.get('/test', (req, res) => {

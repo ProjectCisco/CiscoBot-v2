@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { NextFunction, Request, Response } from 'express'
+import { NextFunction, Response } from 'express'
+import SteamAPI from 'steamapi'
 
 import { config } from '../config'
 import { Player } from '../database'
@@ -99,17 +100,37 @@ export const AuthController = {
       return res.json({
         message: 'This Steam account is already registered.',
       })
-    //  Verify play time on steamapi
+
+    const steamClient = new SteamAPI(config.steam.apiKey)
+    steamClient
+      .getUserOwnedGames(steam.id)
+      .then((results) => {
+        const game = results.find(
+          (game: any) => game.appID === config.steam.gameId
+        )
+        if (!game)
+          return res.json({
+            message:
+              'You do not own the game. Please close this window and step through the instructions again',
+          })
+        if (game.playTime < config.steam.playTime)
+          return res.json({
+            message: `You do not have enough play time. You have ${game.playTime} minutes, you need ${config.steam.playTime} minutes. Please close this window and step through the instructions again`,
+          })
+        req.steam = steam
+        next()
+      })
+      .catch((error) => res.json({ error, message: 'Failed to fetch games' }))
+  },
+
+  RegisterUser: async (req: any, res: Response) =>
     new Player({
       displayname: req.discord.global_name,
       username: req.discord.global_name,
-      steam: steam.id,
+      steam: req.steam.id,
       discord: req.discord.id,
     })
       .save()
       .then(() => res.json({ message: 'Registration successful' }))
-      .catch((error) => res.json({ error }))
-  },
-
-  RegisterUser: async (req: any, res: Response, next: NextFunction) => {},
+      .catch((error) => res.json({ error })),
 }

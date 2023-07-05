@@ -1,5 +1,5 @@
 import { config } from './config'
-import discord from './discord'
+import discord from './discord/index'
 import app from './server'
 
 discord.login(config.discord.token)

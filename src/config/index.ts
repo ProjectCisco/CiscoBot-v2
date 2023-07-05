@@ -28,6 +28,12 @@ const discord = {
   token: process.env.DISCORD_TOKEN ?? '',
 }
 
+const steam = {
+  apiKey: process.env.STEAM_API_KEY ?? '',
+  gameId: 289070,
+  playTime: 120,
+}
+
 const trueskill = {
   MU: 1250,
   SIGMA: 150,
@@ -45,5 +51,6 @@ export const config = {
   discord,
   host: process.env.HOST!,
   port: Number(process.env.PORT!),
+  steam,
   trueskill,
 }
