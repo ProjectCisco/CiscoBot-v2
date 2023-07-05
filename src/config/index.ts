@@ -26,6 +26,9 @@ const discord = {
   clientSecret: process.env.DISCORD_CLIENT_SECRET ?? '',
   guildId: process.env.DISCORD_GUILD_ID ?? '',
   token: process.env.DISCORD_TOKEN ?? '',
+  channels: {
+    lobbylinks: '1126078121121173554',
+  },
 }
 
 const steam = {
