@@ -1,7 +1,7 @@
 import { Router } from 'express'
 
-import { config } from '../config'
 import { AuthController } from '../controllers'
+import JoinRoutes from './join'
 
 const router = Router()
 
@@ -15,12 +15,9 @@ const Routes = () => {
     AuthController.RegisterUser
   )
 
-  router.get('/test', (req, res) => {
-    res.json({ message: 'Test' })
-  })
+  router.use('/join', JoinRoutes())
+
   return router
 }
 
 export default Routes
-
-// 86.4.175.151:1337/?code=gkOOxauitR4BC0Qjo8XrCAAOOFmdxS&state=305384952684609538
