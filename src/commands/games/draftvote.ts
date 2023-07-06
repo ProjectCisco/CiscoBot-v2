@@ -17,11 +17,9 @@ export const data = new SlashCommandBuilder()
       )
   )
 export const execute = async (interaction: ChatInputCommandInteraction) => {
-  if (
-    !ChannelController.isChannel(interaction, config.discord.channels.voteing)
-  )
+  if (!ChannelController.isChannel(interaction, config.discord.channels.voting))
     return
 
   const gametype = interaction.options.getString('gametype')
-  interaction.reply(`VoteType: ${gametype}`)
+  interaction.reply({ content: `VoteType: ${gametype}`, ephemeral: true })
 }
